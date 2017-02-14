@@ -1,0 +1,3 @@
+rootProject.name = 'instructablesApp2'
+
+include ':app'
