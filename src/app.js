@@ -4,6 +4,7 @@ import axios from 'axios'
 import List from './List'
 import Header from './Header'
 import Detail from './Detail'
+import data from './data'
 
 class App extends Component {
 
@@ -15,7 +16,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    console.log("component mounted")
+    console.log(data)
     const config = {
       headers: {
         'X-Mashape-Key':'uvXmpDtTM0mshSQlxPNYLEvtCB8Tp1UYpk7jsnz5cQYui26WUW'
@@ -24,13 +25,11 @@ class App extends Component {
 
     axios.get('https://devru-instructables.p.mashape.com/list?limit=20&offset=0&sort=recent&type=id', config)
     .then(function(response) {
-      let titles = []
-      response.data.items.forEach(function(object) {
-        titles.push(object.title)
-      })
-
       this.setState({ data: response.data.items, dataFetched: true })
     }.bind(this))
+    .catch(function(error) {
+      this.setState({ data: data.items, dataFetched: true })
+    })
   }
 
   getTitles() {
@@ -53,7 +52,7 @@ class App extends Component {
     const hello = <Text>hello</Text>
     return (
         <View>
-          <Header headerText="Recent" />
+          <Header headerText="Recent Instructables" />
           {this.renderList()}
         </View>
     )
