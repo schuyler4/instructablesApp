@@ -2,15 +2,12 @@ import React, { Component } from 'react'
 import { View, Text,TouchableOpacity, Image } from 'react-native'
 import axios from 'axios'
 
+//functional component dosent have state
 function Detail(props) {
 
     let {imageUrl, author, category, favorites, publishDate} = props.data
 
-    console.log(author)
-    console.log(category)
-    console.log(favorites)
-    console.log(publishDate)
-
+    //return all the stuff for the detail view from the data pased by the
     return (
       <View>
         <View style={{ flex: 1, alignItems: 'center' }}>

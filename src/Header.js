@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-// Make a component
+// A header component from another project
 const Header = (props) => {
   const { textStyle, viewStyle } = styles;
 
@@ -12,6 +12,7 @@ const Header = (props) => {
   );
 };
 
+//css in javascript
 const styles = {
   viewStyle: {
     backgroundColor: '#F3160B',
